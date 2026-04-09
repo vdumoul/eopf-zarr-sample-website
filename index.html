@@ -25,17 +25,7 @@
 
       <!-- Logo lockup -->
       <a class="logo-lockup" href="#home" data-goto="home">
-        <div class="logo-cube">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <polygon points="16,4 26,9.5 16,15 6,9.5"  fill="#5CCBC0"/>
-            <polygon points="6,9.5 16,15 16,26 6,20.5"  fill="#00AE9D"/>
-            <polygon points="16,15 26,9.5 26,20.5 16,26" fill="#FBAB18"/>
-          </svg>
-        </div>
-        <div class="logo-text">
-          <span class="logo-name">EOPF</span>
-          <span class="logo-service">Sentinel Zarr Samples</span>
-        </div>
+        <img src="assets/logos/eopf-logo-on-light.png" alt="EOPF Sentinel Zarr Samples Service logo" width="180" />
       </a>
 
       <!-- Nav links -->
@@ -350,27 +340,42 @@ items = catalog.search(
         <p class="section-sub">Use EOPF Zarr products inside your existing toolchain. All plugins are open-source and maintained on GitHub.</p>
         <div class="plugin-grid">
           <div class="plugin-card">
-            <span class="plugin-badge badge-py">Python</span>
+            <div class="plugin-header">
+              <img src="assets/plugins/xarray-cover.png" alt="xarray logo" class="plugin-logo" />
+              <span class="plugin-badge badge-py">Python</span>
+            </div>
             <div class="plugin-name">xarray-eopf</div>
             <p class="plugin-desc">xarray backend for reading EOPF products. Install with pip and pass <code>engine="eopf-zarr"</code> to any <code>xr.open_dataset()</code> call.</p>
           </div>
           <div class="plugin-card">
-            <span class="plugin-badge badge-py">Python</span>
+            <div class="plugin-header">
+              <img src="assets/plugins/xcube-logo.png" alt="xcube logo" class="plugin-logo" />
+              <span class="plugin-badge badge-py">Python</span>
+            </div>
             <div class="plugin-name">xcube data store</div>
             <p class="plugin-desc">Adds an <code>eopf</code> store to xcube for analysis-ready datacube (ARDC) access. Pairs well with the JupyterHub environment.</p>
           </div>
           <div class="plugin-card">
-            <span class="plugin-badge badge-gdal">GDAL</span>
+            <div class="plugin-header">
+              <img src="assets/plugins/gdal-logo.png" alt="GDAL logo" class="plugin-logo" />
+              <span class="plugin-badge badge-gdal">GDAL</span>
+            </div>
             <div class="plugin-name">GDAL reader plugin</div>
             <p class="plugin-desc">Open, process, and visualise EOPF Zarr products in any GDAL-compatible GIS tool. Community-driven and open-source.</p>
           </div>
           <div class="plugin-card">
-            <span class="plugin-badge badge-jl">Julia</span>
+            <div class="plugin-header">
+              <img src="assets/plugins/julia-logo.png" alt="Julia logo" class="plugin-logo" />
+              <span class="plugin-badge badge-jl">Julia</span>
+            </div>
             <div class="plugin-name">Julia reader</div>
             <p class="plugin-desc">Lightweight direct access to EOPF Zarr products for high-performance numerical workflows in Julia.</p>
           </div>
           <div class="plugin-card">
-            <span class="plugin-badge badge-snap">SNAP</span>
+            <div class="plugin-header">
+              <img src="assets/plugins/snap-icon.jpg" alt="SNAP logo" class="plugin-logo" />
+              <span class="plugin-badge badge-snap">SNAP</span>
+            </div>
             <div class="plugin-name">SNAP reader (prototype)</div>
             <p class="plugin-desc">Prototype plugin for ESA's SNAP toolbox. Supports Sentinel-2 L2A Zarr products. Demonstrates desktop toolchain compatibility.</p>
           </div>
@@ -470,6 +475,7 @@ items = catalog.search(
 
             <article class="webinar-card">
               <div class="webinar-thumb">
+                <img src="assets/webinars/webinar-12-thumbnail.png" alt="Webinar 12 thumbnail" class="webinar-image" />
                 <div class="webinar-play" aria-hidden="true"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><polygon points="0,0 14,8 0,16" fill="#00AE9D"/></svg></div>
                 <div class="webinar-mission">S2 · Vegetation</div>
               </div>
@@ -483,6 +489,7 @@ items = catalog.search(
 
             <article class="webinar-card">
               <div class="webinar-thumb">
+                <img src="assets/webinars/webinar-11-thumbnail.png" alt="Webinar 11 thumbnail" class="webinar-image" />
                 <div class="webinar-play" aria-hidden="true"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><polygon points="0,0 14,8 0,16" fill="#00AE9D"/></svg></div>
                 <div class="webinar-mission">Processing · Python</div>
               </div>
@@ -496,6 +503,7 @@ items = catalog.search(
 
             <article class="webinar-card">
               <div class="webinar-thumb">
+                <img src="assets/webinars/webinar-10-thumbnail.png" alt="Webinar 10 thumbnail" class="webinar-image" />
                 <div class="webinar-play" aria-hidden="true"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><polygon points="0,0 14,8 0,16" fill="#00AE9D"/></svg></div>
                 <div class="webinar-mission">Platform update</div>
               </div>
@@ -509,6 +517,7 @@ items = catalog.search(
 
             <article class="webinar-card">
               <div class="webinar-thumb">
+                <img src="assets/webinars/webinar-09-thumbnail.png" alt="Webinar 9 thumbnail" class="webinar-image" />
                 <div class="webinar-play" aria-hidden="true"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><polygon points="0,0 14,8 0,16" fill="#00AE9D"/></svg></div>
                 <div class="webinar-mission">S2 · Land use · AI</div>
               </div>
@@ -522,6 +531,7 @@ items = catalog.search(
 
             <article class="webinar-card">
               <div class="webinar-thumb">
+                <img src="assets/webinars/webinar-08-thumbnail.png" alt="Webinar 8 thumbnail" class="webinar-image" />
                 <div class="webinar-play" aria-hidden="true"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><polygon points="0,0 14,8 0,16" fill="#00AE9D"/></svg></div>
                 <div class="webinar-mission">S1 · SAR</div>
               </div>
@@ -535,6 +545,7 @@ items = catalog.search(
 
             <article class="webinar-card">
               <div class="webinar-thumb">
+                <img src="assets/webinars/webinar-07-thumbnail.png" alt="Webinar 7 thumbnail" class="webinar-image" />
                 <div class="webinar-play" aria-hidden="true"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><polygon points="0,0 14,8 0,16" fill="#00AE9D"/></svg></div>
                 <div class="webinar-mission">openEO · STAC</div>
               </div>
@@ -548,6 +559,7 @@ items = catalog.search(
 
             <article class="webinar-card">
               <div class="webinar-thumb">
+                <img src="assets/webinars/webinar-06-thumbnail.png" alt="Webinar 6 thumbnail" class="webinar-image" />
                 <div class="webinar-play" aria-hidden="true"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><polygon points="0,0 14,8 0,16" fill="#00AE9D"/></svg></div>
                 <div class="webinar-mission">S3 · Ocean</div>
               </div>
@@ -561,6 +573,7 @@ items = catalog.search(
 
             <article class="webinar-card">
               <div class="webinar-thumb">
+                <img src="assets/webinars/webinar-05-thumbnail.png" alt="Webinar 5 thumbnail" class="webinar-image" />
                 <div class="webinar-play" aria-hidden="true"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><polygon points="0,0 14,8 0,16" fill="#00AE9D"/></svg></div>
                 <div class="webinar-mission">AI · Deep learning</div>
               </div>
@@ -574,6 +587,7 @@ items = catalog.search(
 
             <article class="webinar-card">
               <div class="webinar-thumb">
+                <img src="assets/webinars/webinar-04-thumbnail.png" alt="Webinar 4 thumbnail" class="webinar-image" />
                 <div class="webinar-play" aria-hidden="true"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><polygon points="0,0 14,8 0,16" fill="#00AE9D"/></svg></div>
                 <div class="webinar-mission">xcube · Data cubes</div>
               </div>
@@ -587,6 +601,7 @@ items = catalog.search(
 
             <article class="webinar-card">
               <div class="webinar-thumb">
+                <img src="assets/webinars/webinar-03-thumbnail.png" alt="Webinar 3 thumbnail" class="webinar-image" />
                 <div class="webinar-play" aria-hidden="true"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><polygon points="0,0 14,8 0,16" fill="#00AE9D"/></svg></div>
                 <div class="webinar-mission">xarray · Beginner</div>
               </div>
@@ -862,37 +877,37 @@ items = catalog.search(
         <p class="section-sub">Funded by ESA through the Copernicus Space Component programme. Implemented by a consortium of EO and IT organisations.</p>
         <div class="team-grid">
           <div class="team-card">
-            <div class="team-initials">BC</div>
+            <img src="assets/team/brockmann-consult-logo.png" alt="Brockmann Consult logo" class="team-logo" />
             <div class="team-name">Brockmann Consult</div>
             <div class="team-role">Lead integrator</div>
           </div>
           <div class="team-card">
-            <div class="team-initials">DLR</div>
+            <img src="assets/team/dlr-logo.png" alt="DLR logo" class="team-logo" />
             <div class="team-name">DLR</div>
             <div class="team-role">Processing framework</div>
           </div>
           <div class="team-card">
-            <div class="team-initials">EO</div>
+            <img src="assets/team/eodc-logo.png" alt="EODC logo" class="team-logo" />
             <div class="team-name">EODC</div>
             <div class="team-role">Infrastructure &amp; cloud</div>
           </div>
           <div class="team-card">
-            <div class="team-initials">EU</div>
+            <img src="assets/team/eurac-research-logo.png" alt="Eurac Research logo" class="team-logo" />
             <div class="team-name">Eurac Research</div>
             <div class="team-role">Notebooks &amp; validation</div>
           </div>
           <div class="team-card">
-            <div class="team-initials">IF</div>
+            <img src="assets/team/ifremer-logo.png" alt="Ifremer logo" class="team-logo" />
             <div class="team-name">Ifremer</div>
             <div class="team-role">Ocean data expertise</div>
           </div>
           <div class="team-card">
-            <div class="team-initials">SI</div>
+            <img src="assets/team/simula-research-logo.png" alt="Simula Research logo" class="team-logo" />
             <div class="team-name">Simula Research</div>
             <div class="team-role">HPC &amp; performance</div>
           </div>
           <div class="team-card">
-            <div class="team-initials">EF</div>
+            <img src="assets/team/evenflow-logo.png" alt="Evenflow logo" class="team-logo" />
             <div class="team-name">Evenflow</div>
             <div class="team-role">Outreach &amp; adoption</div>
           </div>
@@ -909,23 +924,29 @@ items = catalog.search(
 <footer>
   <div class="container">
     <div class="footer-top">
-      <div class="footer-logo">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <polygon points="16,4 26,9.5 16,15 6,9.5"  fill="#5CCBC0"/>
-          <polygon points="6,9.5 16,15 16,26 6,20.5"  fill="#00AE9D"/>
-          <polygon points="16,15 26,9.5 26,20.5 16,26" fill="#FBAB18"/>
-        </svg>
-        <div>
-          <div style="font-family:var(--font-head);font-weight:700;font-size:14px;color:var(--tx-0)">EOPF Sentinel Zarr Samples Service</div>
-          <div class="footer-tagline">Funded by ESA through the Copernicus Space Component programme</div>
+      <div class="footer-top-left">
+        <div class="footer-logo">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <polygon points="16,4 26,9.5 16,15 6,9.5"  fill="#5CCBC0"/>
+            <polygon points="6,9.5 16,15 16,26 6,20.5"  fill="#00AE9D"/>
+            <polygon points="16,15 26,9.5 26,20.5 16,26" fill="#FBAB18"/>
+          </svg>
+          <div>
+            <div style="font-family:var(--font-head);font-weight:700;font-size:14px;color:var(--tx-0)">EOPF Sentinel Zarr Samples Service</div>
+            <div class="footer-tagline">Funded by ESA through the Copernicus Space Component programme</div>
+          </div>
         </div>
       </div>
-      <div class="footer-partners">
-        <span class="partner-badge">ESA</span>
-        <span class="partner-badge">Copernicus</span>
-        <span class="partner-badge">EU</span>
+      <div class="footer-top-right">
+          <a href="https://eopf-toolkit.github.io/eopf-101/" target="_blank" rel="noopener" class="partner-project-link" aria-label="EOPF Toolkit">
+            <img src="assets/logos/eopf-toolkit-negative.png" alt="EOPF Toolkit" class="partner-project-logo" />
+          </a>
+          <a href="https://explorer.eopf.copernicus.eu/" target="_blank" rel="noopener" class="partner-project-link" aria-label="EOPF Explorer">
+            <img src="assets/logos/eopf-explorer-negative.png" alt="EOPF Explorer" class="partner-project-logo" />
+          </a>
       </div>
     </div>
+
 
     <ul class="footer-links" role="list">
       <li><a href="https://zarr.eopf.copernicus.eu/privacy-policy/"   target="_blank" rel="noopener">Privacy policy</a></li>
@@ -935,6 +956,17 @@ items = catalog.search(
       <li><a href="#learn" data-page="learn" data-learn="faq">FAQ</a></li>
       <li><a href="https://zarr.eopf.copernicus.eu/image-credits/"    target="_blank" rel="noopener">Image credits</a></li>
     </ul>
+
+    <div class="footer-partners">
+      <div class="footer-partners-left">
+        <img src="assets/brand/copernicus-logo.png" alt="Copernicus" class="partner-logo" />
+        <img src="assets/brand/eu-programme-logo.png" alt="EU Programme" class="partner-logo" />
+        <img src="assets/brand/esa-cofunded-logo.png" alt="ESA Co-funded" class="partner-logo" />
+      </div>
+      <div class="footer-partners-right">
+        <img src="assets/brand/eof-logo-last-white.png" alt="EOF" class="partner-logo" />
+      </div>
+    </div>
 
     <p class="footer-copy">
       © European Space Agency. The EOPF Zarr Samples Service is funded by ESA through the Copernicus Space Component programme.
