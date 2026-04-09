@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EOPF Sentinel Zarr Samples Service</title>
+  <meta name="description" content="Early access to Copernicus Sentinel data in the new EOPF Zarr cloud-native format. Explore S1, S2, S3 sample products via STAC, JupyterHub, and open-source plugins." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="EOPF Sentinel Zarr Samples Service" />
+  <meta property="og:description" content="Sentinel satellite data, reimagined for the cloud. ESA's new EOPF Zarr format — sample data, tools, and notebooks." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon (inline SVG cube) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,4 26,9.5 16,15 6,9.5' fill='%235CCBC0'/><polygon points='6,9.5 16,15 16,26 6,20.5' fill='%2300AE9D'/><polygon points='16,15 26,9.5 26,20.5 16,26' fill='%23FBAB18'/></svg>" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ════════════════ NAVIGATION ════════════════ -->
+<header>
+  <nav class="site-nav">
+    <div class="nav-inner">
+
+      <!-- Logo lockup -->
+      <a class="logo-lockup" href="#home" data-goto="home">
+        <div class="logo-cube">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <polygon points="16,4 26,9.5 16,15 6,9.5"  fill="#5CCBC0"/>
+            <polygon points="6,9.5 16,15 16,26 6,20.5"  fill="#00AE9D"/>
+            <polygon points="16,15 26,9.5 26,20.5 16,26" fill="#FBAB18"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">EOPF</span>
+          <span class="logo-service">Sentinel Zarr Samples</span>
+        </div>
+      </a>
+
+      <!-- Nav links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#home"  data-page="home"  class="active">Home</a></li>
+        <li><a href="#data"  data-page="data">Data &amp; tools</a></li>
+        <li><a href="#learn" data-page="learn">Learn</a></li>
+        <li><a href="#about" data-page="about">About</a></li>
+        <!-- <li><button class="btn-nav-cta" type="button">Open STAC browser</button></li> -->
+      </ul>
+
+      <button class="btn-nav-cta" type="button">Open STAC browser</button>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" aria-label="Toggle menu" type="button">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ════════════════ HOME PAGE ════════════════ -->
+  <div id="page-home" class="page active">
+    <div class="container">
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="overline">
+          <span class="overline-tick"></span>
+          ESA Earth Observation Processing Framework
+        </div>
+        <h1>Sentinel satellite data,<br>reimagined for the cloud</h1>
+        <p class="hero-sub">
+          ESA is transitioning Copernicus Sentinel products from legacy SAFE archives
+          to Zarr — a cloud-native format built for scalable, interoperable Earth
+          observation science. Explore sample data and start working with the new
+          format today.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-fill" data-goto="data" type="button">Browse the data →</button>
+          <button class="btn-outline" data-goto="about" type="button">What is EOPF Zarr?</button>
+        </div>
+
+        <div class="ux-note">
+          <span class="ux-tag">UX FIX</span>
+          <span class="ux-text">Current site opens with a 15-word acronym title. This hero answers "what is it, why does it matter, what can I do?" in three lines — before any jargon.</span>
+        </div>
+      </section>
+
+      <!-- Format comparison -->
+      <section class="section">
+        <div class="section-label">The format transition</div>
+        <div class="format-compare">
+          <div class="format-card">
+            <div class="format-label">Legacy format</div>
+            <div class="format-name">ESA SAFE / ZIP</div>
+            <ul class="format-attrs">
+              <li>File-based archive (ZIP + XML)</li>
+              <li>Full download required</li>
+              <li>Mission-specific structure</li>
+              <li>Not cloud-optimised</li>
+            </ul>
+          </div>
+          <div class="format-arrow" aria-hidden="true">→</div>
+          <div class="format-card new">
+            <div class="format-label">New format</div>
+            <div class="format-name">EOPF Zarr</div>
+            <ul class="format-attrs">
+              <li>Chunked, cloud-native arrays</li>
+              <li>Lazy access — no full download</li>
+              <li>Harmonised across missions</li>
+              <li>Works directly with xarray, Python</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ux-note">
+          <span class="ux-tag">UX FIX</span>
+          <span class="ux-text">The SAFE→Zarr comparison is currently buried inside the About page. New users arrive confused about what problem is being solved — this brings it front and centre.</span>
+        </div>
+      </section>
+
+      <!-- Audience paths -->
+      <section class="section">
+        <div class="section-label">Choose your path</div>
+        <h2>Who is this for?</h2>
+        <p class="section-sub">Pick the profile closest to yours to find the most relevant entry point.</p>
+        <div class="audience-grid">
+          <div class="audience-card">
+            <div class="audience-icon sci" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="7" r="3.5" stroke="#00AE9D" stroke-width="1.5"/>
+                <path d="M3.5 16.5c0-3.04 2.46-5.5 5.5-5.5s5.5 2.46 5.5 5.5" stroke="#00AE9D" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="audience-title">Earth scientist</div>
+            <p class="audience-desc">Process Sentinel data for research and validate the new format works with your analysis pipelines.</p>
+            <a href="https://eopf-sample-service.github.io/eopf-sample-notebooks/gallery" target="_blank" rel="noopener" class="audience-link">→ Start with notebook gallery</a>
+          </div>
+          <div class="audience-card">
+            <div class="audience-icon dev" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <polyline points="6,5 2,9 6,13" stroke="#009BDB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="12,5 16,9 12,13" stroke="#009BDB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="10.5" y1="3.5" x2="7.5" y2="14.5" stroke="#009BDB" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="audience-title">Software developer</div>
+            <p class="audience-desc">Build tools or services integrating EOPF Zarr via xarray, GDAL, SNAP, or Julia.</p>
+            <a href="#data" data-goto="data" class="audience-link">→ Explore plugins &amp; API</a>
+          </div>
+          <div class="audience-card">
+            <div class="audience-icon mgr" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <rect x="2" y="3" width="14" height="12" rx="2" stroke="#FBAB18" stroke-width="1.5"/>
+                <line x1="5" y1="8" x2="13" y2="8" stroke="#FBAB18" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="5" y1="11.5" x2="10" y2="11.5" stroke="#FBAB18" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="audience-title">Programme manager</div>
+            <p class="audience-desc">Evaluate this transition for your organisation — understand the architecture and roadmap.</p>
+            <a href="#about" data-goto="about" class="audience-link">→ Read the overview</a>
+          </div>
+        </div>
+
+        <div class="ux-note">
+          <span class="ux-tag">UX FIX</span>
+          <span class="ux-text">Current site has no audience segmentation — everyone gets the same undifferentiated bullet list regardless of their background or goals.</span>
+        </div>
+      </section>
+
+      <!-- Capabilities -->
+      <section class="section">
+        <div class="section-label">Capabilities</div>
+        <h2>What this service provides</h2>
+        <div class="cap-grid">
+          <div class="cap-item">
+            <div class="cap-dot"></div>
+            <div class="cap-text"><strong>Harmonised data formats</strong> across Sentinel-1, 2, and 3 missions in a shared metamodel</div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-dot"></div>
+            <div class="cap-text"><strong>Scalable cloud processing</strong> via JupyterHub and Dask clusters — no local download required</div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-dot"></div>
+            <div class="cap-text"><strong>Open-source plugin ecosystem</strong> for xarray, GDAL, xcube, SNAP, and Julia</div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-dot"></div>
+            <div class="cap-text"><strong>Structured discovery</strong> via STAC API and STAC Browser with metadata per product</div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-dot"></div>
+            <div class="cap-text"><strong>Interactive notebooks</strong> covering use cases across Python, R, and Julia</div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-dot"></div>
+            <div class="cap-text"><strong>Format specification</strong> (PDFS) published openly for S1, S2, S3 product families</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Getting started -->
+      <section class="section">
+        <div class="section-label">Getting started</div>
+        <h2>Four steps to your first analysis</h2>
+        <p class="section-sub">No setup required for cloud access. Use your existing CDSE account.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>
+              <div class="step-title">Get a CDSE account</div>
+              <p class="step-desc">Authentication uses your Copernicus Data Space Ecosystem identity. Register for free if you don't have one.</p>
+              <a href="https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/auth?client_id=cdse-public&response_type=code&scope=openid&redirect_uri=https%3A//dataspace.copernicus.eu/account/confirmed/1" target="_blank" rel="noopener" class="step-link">→ Register on CDSE</a>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>
+              <div class="step-title">Browse products via the STAC browser</div>
+              <p class="step-desc">Explore S1, S2, S3 products. Filter by mission, date, and geographic area. Each item links directly to its Zarr store.</p>
+              <a href="https://stac.browser.user.eopf.eodc.eu/" target="_blank" rel="noopener" class="step-link">→ Open STAC browser</a>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>
+              <div class="step-title">Open the Analytics Hub (JupyterHub + Dask)</div>
+              <p class="step-desc">Launch a pre-configured environment with all EOPF plugins installed. Process data in the cloud — no downloads needed.</p>
+              <a href="mailto:info@zarr.eopf.copernicus.eu" class="step-link">→ Request Analytics Hub access</a>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div>
+              <div class="step-title">Run a sample notebook</div>
+              <p class="step-desc">Start from a curated notebook — vegetation index, SAR backscatter, ocean colour. Available in Python, R, and Julia.</p>
+              <a href="https://eopf-sample-service.github.io/eopf-sample-notebooks/gallery" target="_blank" rel="noopener" class="step-link">→ Browse notebook gallery</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ux-note">
+          <span class="ux-tag">UX FIX</span>
+          <span class="ux-text">Current homepage links "Access the data" and "Discover the data" to the same page — creating a navigation dead-end instead of a journey.</span>
+        </div>
+      </section>
+
+    </div><!-- /container -->
+  </div><!-- /page-home -->
+
+
+  <!-- ════════════════ DATA & TOOLS PAGE ════════════════ -->
+  <div id="page-data" class="page">
+    <div class="container">
+
+      <section class="hero">
+        <div class="overline"><span class="overline-tick"></span>Data &amp; tools</div>
+        <h1>Access and explore Zarr sample products</h1>
+        <p class="hero-sub">Browse available S1, S2, and S3 datasets, access them via cloud tools, and extend your workflow with open-source plugins.</p>
+      </section>
+
+      <!-- STAC Browser preview -->
+      <section class="section">
+        <div class="section-label">Discovery</div>
+        <h2>STAC catalogue browser</h2>
+        <p class="section-sub">
+          Search, filter, and preview all available EOPF products. Also available programmatically via <code>pystac-client</code>.
+        </p>
+        <div class="stac-preview">
+          <div class="stac-filter-label">Filter by mission</div>
+          <div class="stac-filters">
+            <button class="stac-pill active" type="button">All missions</button>
+            <button class="stac-pill" type="button">Sentinel-1 SAR</button>
+            <button class="stac-pill" type="button">Sentinel-2 MSI</button>
+            <button class="stac-pill" type="button">Sentinel-3 OLCI/SLSTR</button>
+          </div>
+          <div class="stac-filter-label">Sample results</div>
+          <div class="stac-results">
+            <div class="stac-item">
+              <div class="stac-item-id">S1A_IW_SLC__1SDV...</div>
+              <div class="stac-item-meta">S1 · IW SLC · 2025-06-12</div>
+            </div>
+            <div class="stac-item">
+              <div class="stac-item-id">S2A_MSIL2A_20251...</div>
+              <div class="stac-item-meta">S2 · L2A · 2025-06-11</div>
+            </div>
+            <div class="stac-item">
+              <div class="stac-item-id">S3A_OL_1_EFR____...</div>
+              <div class="stac-item-meta">S3 · OLCI L1 · 2025-06-10</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:16px">
+          <a href="https://stac.browser.user.eopf.eodc.eu/" target="_blank" rel="noopener" class="btn-fill" style="display:inline-block;text-decoration:none">Open STAC browser →</a>
+        </div>
+
+        <div class="ux-note">
+          <span class="ux-tag">UX FIX</span>
+          <span class="ux-text">Current site shows a static screenshot of the STAC browser. This inline preview sets context before the user navigates to an unfamiliar external tool, reducing bounce.</span>
+        </div>
+      </section>
+
+      <!-- Code access -->
+      <section class="section">
+        <div class="section-label">Code access</div>
+        <h2>Access the data programmatically</h2>
+
+        <div class="callout callout-warn">
+          <div class="callout-label">Recommendation</div>
+          <p class="callout-text">Work in the cloud via JupyterHub whenever possible. Zarr's chunked format is designed for lazy remote access — direct download is supported but discouraged.</p>
+        </div>
+
+        <div class="code-tabs">
+          <button class="code-tab active" data-lang="xarray" type="button">xarray (recommended)</button>
+          <button class="code-tab" data-lang="pystac" type="button">pystac-client</button>
+          <button class="code-tab" data-lang="s5cmd"  type="button">s5cmd CLI</button>
+        </div>
+
+        <div class="code-block">
+          <button class="copy-btn" type="button">Copy</button>
+
+          <div class="code-panel active" id="code-xarray"><span class="kw">import</span> xarray <span class="kw">as</span> xr
+
+<span class="cm"># Open EOPF Zarr product directly from object store</span>
+ds = xr.open_dataset(
+    <span class="str">"s3://e05ab01a9d56408d82ac32d69a5aae2a:202506-s02msil2a/..."</span>,
+    engine=<span class="str">"eopf-zarr"</span>,
+    chunks=<span class="str">"auto"</span>
+)
+ds[<span class="str">"B04"</span>].isel(time=<span class="num">0</span>).plot()</div>
+
+          <div class="code-panel" id="code-pystac"><span class="kw">from</span> pystac_client <span class="kw">import</span> Client
+
+<span class="cm"># Search the STAC catalogue</span>
+catalog = Client.open(<span class="str">"https://stac.browser.user.eopf.eodc.eu"</span>)
+items = catalog.search(
+    collections=[<span class="str">"sentinel-2-l2a"</span>],
+    bbox=[<span class="num">12.0</span>, <span class="num">41.5</span>, <span class="num">13.0</span>, <span class="num">42.5</span>]
+).item_collection()</div>
+
+          <div class="code-panel" id="code-s5cmd">s5cmd \
+  --credentials-file ~/.aws/credentials \
+  cp \
+  s3://e05ab01a9d56408d82ac32d69a5aae2a:202506-s02msil2a/*.zarr \
+  ./local_output/</div>
+        </div>
+
+        <p style="margin-top:12px; font-size:13px; color:var(--tx-2)">
+          More detailed examples in the
+          <a href="https://eopf-sample-service.github.io/eopf-sample-notebooks/" target="_blank" rel="noopener">notebook gallery</a>.
+        </p>
+
+        <div class="ux-note">
+          <span class="ux-tag">UX FIX</span>
+          <span class="ux-text">Current site uses static PNG screenshots for all code snippets — they cannot be copied. This is the most critical developer-experience failure on the site.</span>
+        </div>
+      </section>
+
+      <!-- Plugins -->
+      <section class="section">
+        <div class="section-label">Open-source plugins</div>
+        <h2>Tools &amp; integrations</h2>
+        <p class="section-sub">Use EOPF Zarr products inside your existing toolchain. All plugins are open-source and maintained on GitHub.</p>
+        <div class="plugin-grid">
+          <div class="plugin-card">
+            <span class="plugin-badge badge-py">Python</span>
+            <div class="plugin-name">xarray-eopf</div>
+            <p class="plugin-desc">xarray backend for reading EOPF products. Install with pip and pass <code>engine="eopf-zarr"</code> to any <code>xr.open_dataset()</code> call.</p>
+          </div>
+          <div class="plugin-card">
+            <span class="plugin-badge badge-py">Python</span>
+            <div class="plugin-name">xcube data store</div>
+            <p class="plugin-desc">Adds an <code>eopf</code> store to xcube for analysis-ready datacube (ARDC) access. Pairs well with the JupyterHub environment.</p>
+          </div>
+          <div class="plugin-card">
+            <span class="plugin-badge badge-gdal">GDAL</span>
+            <div class="plugin-name">GDAL reader plugin</div>
+            <p class="plugin-desc">Open, process, and visualise EOPF Zarr products in any GDAL-compatible GIS tool. Community-driven and open-source.</p>
+          </div>
+          <div class="plugin-card">
+            <span class="plugin-badge badge-jl">Julia</span>
+            <div class="plugin-name">Julia reader</div>
+            <p class="plugin-desc">Lightweight direct access to EOPF Zarr products for high-performance numerical workflows in Julia.</p>
+          </div>
+          <div class="plugin-card">
+            <span class="plugin-badge badge-snap">SNAP</span>
+            <div class="plugin-name">SNAP reader (prototype)</div>
+            <p class="plugin-desc">Prototype plugin for ESA's SNAP toolbox. Supports Sentinel-2 L2A Zarr products. Demonstrates desktop toolchain compatibility.</p>
+          </div>
+          <div class="plugin-card coming">
+            <span class="plugin-badge badge-soon">Coming soon</span>
+            <div class="plugin-name">More integrations</div>
+            <p class="plugin-desc">QGIS plugin and R reader are under active development. Follow progress or contribute on the community forum.</p>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /container -->
+  </div><!-- /page-data -->
+
+
+  <!-- ════════════════ LEARN PAGE ════════════════ -->
+  <div id="page-learn" class="page">
+    <div class="container">
+
+      <section class="hero">
+        <div class="overline"><span class="overline-tick"></span>Learn</div>
+        <h1>Resources to get you started</h1>
+        <p class="hero-sub">Webinars, FAQ, notebook gallery, and community forum — everything you need to build confidence with the new format.</p>
+        <div class="ux-note">
+          <span class="ux-tag">UX FIX</span>
+          <span class="ux-text">"Knowledge Hub" renamed to "Learn" — the intent is immediately clear. Educational content is now separated from news &amp; newsletters rather than sharing the same dropdown.</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">Self-study</div>
+        <h2>Recommended learning path</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>
+              <div class="step-title">Read the EOPF 101 primer</div>
+              <p class="step-desc">A concise overview of the Zarr format, EOPF metamodel, and the rationale for migrating from SAFE. About 15 minutes.</p>
+              <a href="https://eopf-toolkit.github.io/eopf-101/" target="_blank" rel="noopener" class="step-link">→ Open EOPF 101 (Toolkit site)</a>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>
+              <div class="step-title">Watch a webinar</div>
+              <p class="step-desc">Recorded sessions cover access patterns, notebook workflows, and product format details. Start with the introductory session if you're new to EOPF.</p>
+              <a href="https://zarr.eopf.copernicus.eu/knowledge-hub/#webinars" target="_blank" rel="noopener" class="step-link">→ View webinar archive</a>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>
+              <div class="step-title">Run a notebook from the gallery</div>
+              <p class="step-desc">Hands-on examples: vegetation indices (S2), SAR backscatter (S1), ocean colour (S3), and more. Executable in-browser via BinderHub.</p>
+              <a href="https://eopf-sample-service.github.io/eopf-sample-notebooks/gallery" target="_blank" rel="noopener" class="step-link">→ Open notebook gallery</a>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div>
+              <div class="step-title">Read the FAQ</div>
+              <p class="step-desc">Common questions on format compatibility, access credentials, data coverage, and the migration timeline.</p>
+              <a href="https://zarr.eopf.copernicus.eu/wp-content/uploads/2025/12/EOPF-Sentinel-Zarr-Samples_FAQ.pdf" target="_blank" rel="noopener" class="step-link">→ Read the FAQ (PDF)</a>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <div>
+              <div class="step-title">Ask the community</div>
+              <p class="step-desc">The Discourse forum is staffed by the project team and peer experts. Post questions, share notebooks, and follow development updates.</p>
+              <a href="https://discourse.eopf.copernicus.eu/" target="_blank" rel="noopener" class="step-link">→ Join the community forum</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">Stay updated</div>
+        <h2>Newsletter &amp; news</h2>
+        <p class="section-sub">Monthly updates on new products, plugins, and webinars delivered to your inbox.</p>
+        <form class="newsletter-form" novalidate>
+          <input type="email" placeholder="your@institution.eu" autocomplete="email" aria-label="Email address" required />
+          <button class="btn-fill" type="submit">Subscribe</button>
+        </form>
+      </section>
+
+    </div><!-- /container -->
+  </div><!-- /page-learn -->
+
+
+  <!-- ════════════════ ABOUT PAGE ════════════════ -->
+  <div id="page-about" class="page">
+    <div class="container">
+
+      <section class="hero">
+        <div class="overline"><span class="overline-tick"></span>About</div>
+        <h1>What is EOPF Zarr?</h1>
+        <p class="hero-sub">The Earth Observation Processing Framework (EOPF) is ESA's initiative to modernise how Copernicus Sentinel data is stored, distributed, and processed.</p>
+        <div class="ux-note">
+          <span class="ux-tag">UX FIX</span>
+          <span class="ux-text">Current About page opens with "Our Team" (just a row of logos, no names or roles). The actual Zarr explanation is buried four scrolls down. Concept-first, team-second is the correct order.</span>
+        </div>
+      </section>
+
+      <!-- Why Zarr -->
+      <section class="section">
+        <div class="section-label">The technology</div>
+        <h2>Why Zarr?</h2>
+        <div class="explainer-grid">
+          <div>
+            <div class="explainer-title">What Zarr is</div>
+            <p class="explainer-body">Zarr is a community-maintained, open format for storing large, chunked N-dimensional arrays. It is the cloud-native successor to NetCDF and an alternative to COG that handles multi-dimensional data more naturally.</p>
+          </div>
+          <div>
+            <div class="explainer-title">Why ESA chose it</div>
+            <p class="explainer-body">Zarr supports lazy I/O — users access only the spatial or temporal slice they need, with no full download. This makes it ideal for object store deployment and directly compatible with xarray, Dask, and NumPy.</p>
+          </div>
+          <div>
+            <div class="explainer-title">What EOPF adds</div>
+            <p class="explainer-body">EOPF defines a common metamodel layered on top of Zarr, harmonising product structure across all Sentinel missions. A single code pattern opens S1, S2, or S3 products without mission-specific workarounds.</p>
+          </div>
+          <div>
+            <div class="explainer-title">Where this is going</div>
+            <p class="explainer-body">This service is an early-access proving ground. The full transition of operational Copernicus products is funded and in progress. The service exists to validate the format with real users before the full rollout.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture pipeline -->
+      <section class="section">
+        <div class="section-label">Architecture</div>
+        <h2>How data is reformatted</h2>
+        <p class="section-sub">Existing CDSE products are converted automatically via the EOPF CPM library and published to a STAC catalogue.</p>
+        <div class="pipeline">
+          <div class="pipe-step">
+            <div class="pipe-num">Step 1</div>
+            <div class="pipe-label">Query CDSE</div>
+            <p class="pipe-body">Download SAFE products over a configurable area of interest</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pipe-num">Step 2</div>
+            <div class="pipe-label">Convert</div>
+            <p class="pipe-body">EOPF CPM library reformats SAFE → Zarr</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pipe-num">Step 3</div>
+            <div class="pipe-label">Upload</div>
+            <p class="pipe-body">Zarr stores written to EODC S3 object storage</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pipe-num">Step 4</div>
+            <div class="pipe-label">Catalogue</div>
+            <p class="pipe-body">STAC items generated and registered in the API</p>
+          </div>
+        </div>
+
+        <div class="callout callout-ok">
+          <div class="callout-label">Security</div>
+          <p class="callout-text">The STAC API and STAC Browser run behind an API Gateway. Authentication is handled via Copernicus Data Space Ecosystem (CDSE) identities.</p>
+        </div>
+      </section>
+
+      <!-- Team -->
+      <section class="section">
+        <div class="section-label">Consortium</div>
+        <h2>Who builds this</h2>
+        <p class="section-sub">Funded by ESA through the Copernicus Space Component programme. Implemented by a consortium of EO and IT organisations.</p>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-initials">BC</div>
+            <div class="team-name">Brockmann Consult</div>
+            <div class="team-role">Lead integrator</div>
+          </div>
+          <div class="team-card">
+            <div class="team-initials">DLR</div>
+            <div class="team-name">DLR</div>
+            <div class="team-role">Processing framework</div>
+          </div>
+          <div class="team-card">
+            <div class="team-initials">EO</div>
+            <div class="team-name">EODC</div>
+            <div class="team-role">Infrastructure &amp; cloud</div>
+          </div>
+          <div class="team-card">
+            <div class="team-initials">EU</div>
+            <div class="team-name">Eurac Research</div>
+            <div class="team-role">Notebooks &amp; validation</div>
+          </div>
+          <div class="team-card">
+            <div class="team-initials">IF</div>
+            <div class="team-name">Ifremer</div>
+            <div class="team-role">Ocean data expertise</div>
+          </div>
+          <div class="team-card">
+            <div class="team-initials">SI</div>
+            <div class="team-name">Simula Research</div>
+            <div class="team-role">HPC &amp; performance</div>
+          </div>
+          <div class="team-card">
+            <div class="team-initials">EF</div>
+            <div class="team-name">Evenflow</div>
+            <div class="team-role">Outreach &amp; adoption</div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /container -->
+  </div><!-- /page-about -->
+
+</main>
+
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <polygon points="16,4 26,9.5 16,15 6,9.5"  fill="#5CCBC0"/>
+          <polygon points="6,9.5 16,15 16,26 6,20.5"  fill="#00AE9D"/>
+          <polygon points="16,15 26,9.5 26,20.5 16,26" fill="#FBAB18"/>
+        </svg>
+        <div>
+          <div style="font-family:var(--font-head);font-weight:700;font-size:14px;color:var(--tx-0)">EOPF Sentinel Zarr Samples Service</div>
+          <div class="footer-tagline">Funded by ESA through the Copernicus Space Component programme</div>
+        </div>
+      </div>
+      <div class="footer-partners">
+        <span class="partner-badge">ESA</span>
+        <span class="partner-badge">Copernicus</span>
+        <span class="partner-badge">EU</span>
+      </div>
+    </div>
+
+    <ul class="footer-links" role="list">
+      <li><a href="https://zarr.eopf.copernicus.eu/privacy-policy/"   target="_blank" rel="noopener">Privacy policy</a></li>
+      <li><a href="https://zarr.eopf.copernicus.eu/cookie-notice/"    target="_blank" rel="noopener">Cookie notice</a></li>
+      <li><a href="https://github.com/EOPF-Sample-Service"            target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://discourse.eopf.copernicus.eu/"             target="_blank" rel="noopener">Community forum</a></li>
+      <li><a href="https://zarr.eopf.copernicus.eu/wp-content/uploads/2025/12/EOPF-Sentinel-Zarr-Samples_FAQ.pdf" target="_blank" rel="noopener">FAQ</a></li>
+      <li><a href="https://zarr.eopf.copernicus.eu/image-credits/"    target="_blank" rel="noopener">Image credits</a></li>
+    </ul>
+
+    <p class="footer-copy">
+      © European Space Agency. The EOPF Zarr Samples Service is funded by ESA through the Copernicus Space Component programme.
+      This is an unofficial redesign proposal — not affiliated with ESA or Copernicus.
+    </p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
