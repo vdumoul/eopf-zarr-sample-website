@@ -9,6 +9,7 @@ Thumbs.db
 
 # Temp
 *.log
+deploy_on_GH.md
 
 # Scrapping tool
 eopf-assets/
