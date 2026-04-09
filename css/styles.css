@@ -1051,7 +1051,7 @@ footer {
 
 /* Webinar thumbnail implementation: Proposal 1 active */
 .webinar-thumb {
-  height: 120px;
+  height: 200px;
   position: relative;
   overflow: hidden;
   border-radius: var(--r-md);
@@ -1062,35 +1062,6 @@ footer {
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
-.webinar-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  border-radius: var(--r-full);
-  background: rgba(0,174,157,0.2);
-  border: 1.5px solid var(--pri-600);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 3px;
-}
-.webinar-mission {
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  font-family: var(--font-head);
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--pri-400);
-  background: rgba(0,0,0,0.7);
-  padding: 2px 6px;
-  border-radius: var(--r-sm);
 }
 .webinar-body {
   padding: 16px 20px;
